@@ -226,7 +226,7 @@
     <div class="triangle-wrapper">
         <section class="triangle-part white">
             <div class="container custom-container">
-                <div class="row align-items-center">
+                <div class="row align-items-center justify-content-center">
                     <div class="col-md-7">
                         <div class="left-side">
                             <div class="diamond-wrap">
@@ -476,7 +476,7 @@
     <!-- GSAP Animation Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
+    <script type="module" src="js/main.js"></script>
     <!-- Custom Animations -->
     <!-- <script src="js/animations.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -504,161 +504,6 @@
                 }
             });
         });
-
-    </script>
-    <script>
-        gsap.registerPlugin(ScrollTrigger);
-
-        const section = document.querySelector(".people-doorstep");
-        const heading = section.querySelector("h2");
-        const text = section.querySelector("p");
-        const swiper = section.querySelector(".doorstepSwiper");
-        const images = section.querySelectorAll(".swiper-slide img");
-
-        const clip = {
-            hiddenLeft: "polygon(0 0, 0 0, 0 100%, 0 100%)",
-            visible: "polygon(0 0, 100% 0, 100% 100%, 0 100%)",
-            hiddenRight: "polygon(100% 0, 100% 0, 100% 100%, 100% 100%)"
-        };
-
-        let activeTL = null;
-
-        function playTimeline(tl) {
-            if (activeTL) activeTL.kill();
-            activeTL = tl;
-            tl.play();
-        }
-
-        function enterFromTop() {
-            playTimeline(
-                gsap.timeline()
-                .fromTo(
-                    [heading, text], {
-                        y: -160,
-                        opacity: 0
-                    }, {
-                        y: 10,
-                        opacity: 1,
-                        duration: 2,
-                        ease: "power3.out"
-                    }
-                )
-                .fromTo(
-                    swiper, {
-                        y: 360
-                    }, {
-                        y: 20,
-                        duration: 2,
-                        ease: "power3.out"
-                    },
-                    "<"
-                )
-                .fromTo(
-                    images, {
-                        clipPath: clip.hiddenLeft,
-                        opacity: 0
-                    }, {
-                        clipPath: clip.visible,
-                        opacity: 1,
-                        duration: 2.5,
-                        stagger: 1,
-                        ease: "power4.out"
-                    },
-                    "<0.1"
-                )
-            );
-        }
-
-        function enterFromBottom() {
-            playTimeline(
-                gsap.timeline()
-                .fromTo(
-                    images, {
-                        clipPath: clip.hiddenLeft
-                    }, {
-                        clipPath: clip.visible,
-                        opacity: 1,
-                        stagger: 1,
-                        duration: 2.5,
-                        ease: "power4.out"
-                    },
-                    "<0.1"
-                )
-                .fromTo(
-                    [heading, text], {
-                        y: -160,
-                        opacity: 0
-                    }, {
-                        y: 200,
-                        opacity: 1,
-                        duration: 2,
-                        ease: "power3.out"
-                    },
-                    "<"
-                )
-            );
-        }
-
-        function exitToBottom() {
-            playTimeline(
-                gsap.timeline()
-                .to(images, {
-                    clipPath: clip.hiddenRight,
-                    opacity: 0,
-                    stagger: {
-                        each: 0.12,
-                        from: "end"
-                    },
-                    duration: 2.5,
-                    ease: "power3.in"
-                })
-                .to(section, {
-                    y: -120,
-                    ease: "power3.in"
-                }, "<")
-            );
-        }
-
-        function exitToTop() {
-            playTimeline(
-                gsap.timeline()
-                .to(images, {
-                    clipPath: clip.hiddenRight,
-                    opacity: 0,
-                    stagger: {
-                        each: 0.12,
-                        from: "end"
-                    },
-                    duration: 2.5,
-                    ease: "power3.in"
-                })
-                .to([heading, text], {
-                    y: -120,
-                    duration: 1.5
-                }, ">-4")
-            );
-        }
-
-        ScrollTrigger.create({
-            trigger: section,
-            start: "top 65%",
-            end: "bottom 35%",
-            onEnter: enterFromTop,
-            onEnterBack: enterFromBottom,
-        });
-
-        ScrollTrigger.create({
-            trigger: section,
-            start: "bottom center",
-            onEnter: exitToBottom
-        });
-
-        // ScrollTrigger.create({
-        //     trigger: section,
-        //     start: "top 75%",
-        //     end: "bottom center",
-        //     onEnterBack: exitToTop
-        // });
 
     </script>
 
