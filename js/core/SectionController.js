@@ -44,4 +44,15 @@ function goto(targetIndex, direction) {
             { autoAlpha: 0, yPercent: 100 * direction },
             { autoAlpha: 1, yPercent: 0 }, 
         0 );
+    // const master = gsap.timeline({
+    //     onComplete: () => {
+    //         animating = false;
+    //         SectionRegistry.currentIndex = targetIndex;
+    //     }
+    // });
+
+    // master.add(current.onLeave(direction));
+    // master.to(current.el, { autoAlpha: 0 }, "<");
+    // master.set(next.el, { autoAlpha: 1 });
+    // master.add(next.onEnter(direction));
 }

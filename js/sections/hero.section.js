@@ -1,12 +1,15 @@
 export function createHeroSection(el) {
+    let tl;
     return {
         el,
         onEnter(direction) {
-            console.log("Enter Hero")
+            // tl = gsap.timeline();
+            // return tl;
         },
 
         onLeave(direction) {
-            console.log("Leave Hero")
+            // tl = gsap.timeline();
+            // return tl;
         }
     };
 }
