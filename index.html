@@ -105,13 +105,21 @@
         transform: rotate(90deg);
         animation: rotateLine 4s ease-in-out infinite alternate;
       }
-      .triangle-wrapper {
+      .triangle-wrapper,
+      .observer-wrapper {
         position: relative;
         height: 100vh;
         overflow: hidden;
       }
 
-      .triangle-part {
+      .triangle-part,
+      .hero-section,
+      .people-section,
+      .experience-section,
+      .founder-section,
+      .crafted-hero,
+      .build-section,
+      .final-cta {
         position: absolute;
         inset: 0;
         width: 100%;
@@ -153,295 +161,306 @@
       </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero-section">
-      <img
-        src="images/hero-background.jpg"
-        alt="Luxury estate homes aerial view"
-      />
-      <div class="custom-container">
-        <div class="hero-content">
-          <h1 class="heading-hero">Custom Built Homes<br />with Experience</h1>
-          <div class="hero-cta-wrapper">
-            <p class="body-text-large">
-              A home is more than a structure — it's where life unfolds. From
-              morning hallway races to quiet coffee moments, your home should
-              reflect the life you're building inside it.
-            </p>
-            <a href="#" class="btn-primary">View Project</a>
+    <div class="observer-wrapper">
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <img
+          src="images/hero-background.jpg"
+          alt="Luxury estate homes aerial view"
+        />
+        <div class="custom-container">
+          <div class="hero-content">
+            <h1 class="heading-hero">
+              Custom Built Homes<br />with Experience
+            </h1>
+            <div class="hero-cta-wrapper">
+              <p class="body-text-large">
+                A home is more than a structure — it's where life unfolds. From
+                morning hallway races to quiet coffee moments, your home should
+                reflect the life you're building inside it.
+              </p>
+              <a href="#" class="btn-primary">View Project</a>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- When People Land Section -->
-    <section class="people-section">
-      <div class="custom-container">
-        <h2 class="heading-large">When people land<br />on our doorstep</h2>
-        <p class="body-text">
-          They usually aren't looking for a contractor. They're looking for
-          someone who will pay attention. Someone who understands that a home is
-          more than a structure.
-        </p>
+      <!-- When People Land Section -->
+      <section class="people-section">
+        <div class="custom-container">
+          <h2 class="heading-large">When people land<br />on our doorstep</h2>
+          <p class="body-text">
+            They usually aren't looking for a contractor. They're looking for
+            someone who will pay attention. Someone who understands that a home
+            is more than a structure.
+          </p>
+        </div>
+        <div class="custom-container">
+          <div class="image-grid">
+            <div class="image-grid-item">
+              <img
+                src="images/living-room-interior.png"
+                alt="Modern living room with vaulted ceiling"
+              />
+            </div>
+            <div class="image-grid-item">
+              <img
+                src="images/outdoor-patio.jpg"
+                alt="Outdoor patio with mountain view"
+              />
+            </div>
+            <div class="image-grid-item">
+              <img
+                src="images/kitchen-interior.jpg"
+                alt="Spacious modern kitchen"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Diamond Section -->
+      <div class="triangle-wrapper">
+        <section class="triangle-part white">
+          <div class="container custom-container">
+            <div class="row align-items-center justify-content-center">
+              <div class="col-md-7">
+                <div class="left-side">
+                  <div class="diamond-wrap">
+                    <img
+                      src="images/Image-container.png"
+                      alt=""
+                      class="w-100"
+                    />
+                    <h1 class="hero-title">BEYOND SIZE AND LOCATION</h1>
+                  </div>
+                  <h1 class="split-text">BEYOND SIZE AND LOCATION</h1>
+                </div>
+              </div>
+              <div class="col-md-5 right-1">
+                <div class="right-side">
+                  <p>
+                    It's where your kids race down the hallway in the morning.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="triangle-part beige">
+          <div class="container custom-container">
+            <div class="row align-items-center">
+              <div class="col-md-7">
+                <div class="left-side">
+                  <div class="diamond-wrap">
+                    <img
+                      src="images/Image-container.png"
+                      alt=""
+                      class="w-100 diamond-image"
+                    />
+                    <h1 class="hero-title">BEYOND SIZE AND LOCATION</h1>
+                  </div>
+                  <h1 class="split-text">BEYOND SIZE AND LOCATION</h1>
+                </div>
+              </div>
+              <div class="col-md-5">
+                <div class="right-side">
+                  <p>
+                    It's where you drink coffee in the quiet moments before
+                    theday rushes in.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="triangle-part blue">
+          <div class="container custom-container">
+            <div class="row align-items-center">
+              <div class="col-md-7">
+                <div class="left-side">
+                  <div class="diamond-wrap">
+                    <img
+                      src="images/Image-container.png"
+                      alt=""
+                      class="w-100 diamond-image"
+                    />
+                    <h1 class="hero-title">BEYOND SIZE AND LOCATION</h1>
+                  </div>
+                  <h1 class="split-text">BEYOND SIZE AND LOCATION</h1>
+                </div>
+              </div>
+              <div class="col-md-5">
+                <div class="right-side">
+                  <p>
+                    It's the way the sun hits the kitchen floor in late
+                    afternoon.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="triangle-part pink">
+          <div class="container custom-container">
+            <div class="row align-items-center">
+              <div class="col-md-7">
+                <div class="left-side">
+                  <div class="diamond-wrap">
+                    <img
+                      src="images/Image-container.png"
+                      alt=""
+                      class="w-100 diamond-image"
+                    />
+                    <h1 class="hero-title">BEYOND SIZE AND LOCATION</h1>
+                  </div>
+                  <h1 class="split-text">BEYOND SIZE AND LOCATION</h1>
+                </div>
+              </div>
+              <div class="col-md-5">
+                <div class="right-side">
+                  <p>
+                    A custom home isn't only about square footage and location.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
-      <div class="custom-container">
-        <div class="image-grid">
-          <div class="image-grid-item">
-            <img
-              src="images/living-room-interior.png"
-              alt="Modern living room with vaulted ceiling"
-            />
-          </div>
-          <div class="image-grid-item">
-            <img
-              src="images/outdoor-patio.jpg"
-              alt="Outdoor patio with mountain view"
-            />
-          </div>
-          <div class="image-grid-item">
-            <img
-              src="images/kitchen-interior.jpg"
-              alt="Spacious modern kitchen"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Diamond Section -->
-    <div class="triangle-wrapper">
-      <section class="triangle-part white">
-        <div class="container custom-container">
-          <div class="row align-items-center justify-content-center">
-            <div class="col-md-7">
-              <div class="left-side">
-                <div class="diamond-wrap">
-                  <img src="images/Image-container.png" alt="" class="w-100" />
-                  <h1 class="hero-title">BEYOND SIZE AND LOCATION</h1>
-                </div>
-                <h1 class="split-text">BEYOND SIZE AND LOCATION</h1>
-              </div>
-            </div>
-            <div class="col-md-5 right-1">
-              <div class="right-side">
-                <p>
-                  It's where your kids race down the hallway in the morning.
-                </p>
-              </div>
+      <!-- Experience Exceptional Section -->
+      <section class="experience-section">
+        <img src="images/bedroom-background.jpg" alt="Elegant master bedroom" />
+        <div class="custom-container">
+          <div class="experience-content">
+            <h2 class="heading-large">Experience the<br />exceptional</h2>
+            <div class="project-navigation">
+              <a href="#" class="project-link">View Project</a>
+              <div class="project-divider"></div>
+              <span class="project-pagination">1 - 7</span>
+              <span class="project-label">Browning</span>
             </div>
           </div>
         </div>
       </section>
-      <section class="triangle-part beige">
-        <div class="container custom-container">
-          <div class="row align-items-center">
-            <div class="col-md-7">
-              <div class="left-side">
-                <div class="diamond-wrap">
-                  <img
-                    src="images/Image-container.png"
-                    alt=""
-                    class="w-100 diamond-image"
-                  />
-                  <h1 class="hero-title">BEYOND SIZE AND LOCATION</h1>
-                </div>
-                <h1 class="split-text">BEYOND SIZE AND LOCATION</h1>
+
+      <!-- Founder Section -->
+      <section class="founder-section">
+        <div class="custom-container">
+          <div class="founder-grid">
+            <div class="founder-content">
+              <h2 class="heading-large">
+                I've spent<br />more than<br />25 years
+              </h2>
+              <p class="body-text">
+                Building homes throughout Boone and Hamilton County, and I can
+                tell you this with complete honesty. I've never built the same
+                home twice. Not because I don't know how, but rather because I
+                don't want to. When you genuinely listen to people, when you pay
+                attention to the small things they care about, every house
+                becomes its own story. That's what draws me into this work.
+              </p>
+              <div class="founder-signature">
+                <img src="images/signature.png" alt="Joe Viewegh signature" />
               </div>
+              <p class="founder-name">Joe Viewegh</p>
+              <p class="founder-title">Owner & CE</p>
+              <a href="#" class="btn-primary">Contact Us</a>
             </div>
-            <div class="col-md-5">
-              <div class="right-side">
-                <p>
-                  It's where you drink coffee in the quiet moments before theday
-                  rushes in.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-      <section class="triangle-part blue">
-        <div class="container custom-container">
-          <div class="row align-items-center">
-            <div class="col-md-7">
-              <div class="left-side">
-                <div class="diamond-wrap">
-                  <img
-                    src="images/Image-container.png"
-                    alt=""
-                    class="w-100 diamond-image"
-                  />
-                  <h1 class="hero-title">BEYOND SIZE AND LOCATION</h1>
-                </div>
-                <h1 class="split-text">BEYOND SIZE AND LOCATION</h1>
-              </div>
-            </div>
-            <div class="col-md-5">
-              <div class="right-side">
-                <p>
-                  It's the way the sun hits the kitchen floor in late afternoon.
-                </p>
-              </div>
+            <div class="founder-image">
+              <img
+                src="images/founder-photo.jpg"
+                alt="Joe Viewegh, Owner & CE"
+              />
             </div>
           </div>
         </div>
       </section>
-      <section class="triangle-part pink">
-        <div class="container custom-container">
-          <div class="row align-items-center">
-            <div class="col-md-7">
-              <div class="left-side">
-                <div class="diamond-wrap">
-                  <img
-                    src="images/Image-container.png"
-                    alt=""
-                    class="w-100 diamond-image"
-                  />
-                  <h1 class="hero-title">BEYOND SIZE AND LOCATION</h1>
-                </div>
-                <h1 class="split-text">BEYOND SIZE AND LOCATION</h1>
-              </div>
-            </div>
-            <div class="col-md-5">
-              <div class="right-side">
-                <p>
-                  A custom home isn't only about square footage and location.
-                </p>
-              </div>
-            </div>
+
+      <!-- Crafted Homes Hero -->
+      <section class="crafted-hero">
+        <img
+          src="images/crafted-homes-bg.jpg"
+          alt="Blue sky background"
+          class="bg-image"
+        />
+        <div class="crafted-hero-content">
+          <h2 class="heading-hero">Crafted Homes</h2>
+          <img
+            src="images/house-exterior.png"
+            alt="Modern craftsman-style home"
+            class="house-image"
+          />
+        </div>
+      </section>
+
+      <!-- When You Build With Us Section -->
+      <section class="build-section">
+        <div class="custom-container">
+          <div class="build-header">
+            <h2 class="heading-large">When you build with us</h2>
+            <p class="body-text">
+              You're not stepping into a system designed to push you through as
+              fast as possible. You're stepping into a relationship that feels
+              personal from the first conversation. We get to know you. We ask
+              questions. We look at inspiration photos and talk through what you
+              love about each one. We learn your rhythms, your plans, your
+              quirks, and we build around those. Custom is not a style. Custom
+              is an experience, and here at Viewegh Crafted Homes, we live for
+              that experience.
+            </p>
+            <a href="#" class="btn-primary">View All</a>
           </div>
+          <div class="blog-grid">
+            <a href="#" class="blog-card">
+              <img
+                src="images/blog-bathroom-1.jpg"
+                alt="Luxury bathroom with gold fixtures"
+              />
+              <p class="blog-card-meta">Nov 14, 2025 / 6 min read</p>
+              <h3 class="blog-card-title">
+                Designing Inclusive Spaces: Accessibility in Urban Areas
+              </h3>
+            </a>
+            <a href="#" class="blog-card">
+              <img
+                src="images/blog-living-room.jpg"
+                alt="Two-story living room with exposed beams"
+              />
+              <p class="blog-card-meta">Nov 14, 2025 / 6 min read</p>
+              <h3 class="blog-card-title">
+                Designing Inclusive Spaces: Accessibility in Urban Areas
+              </h3>
+            </a>
+            <a href="#" class="blog-card">
+              <img
+                src="images/blog-bathroom-2.jpg"
+                alt="Modern bathroom with teal vanity"
+              />
+              <p class="blog-card-meta">Nov 14, 2025 / 6 min read</p>
+              <h3 class="blog-card-title">
+                Designing Inclusive Spaces: Accessibility in Urban Areas
+              </h3>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Final CTA Section -->
+      <section class="final-cta">
+        <img
+          src="images/pool-house-background.jpg"
+          alt="Luxury backyard with pool"
+        />
+        <div class="final-cta-content">
+          <p>
+            If you're looking for a home that feels like yours before you even
+            move in, you're in the right place.
+          </p>
+          <a href="#" class="btn-primary">Start a Conversation</a>
         </div>
       </section>
     </div>
-
-    <!-- Experience Exceptional Section -->
-    <section class="experience-section">
-      <img src="images/bedroom-background.jpg" alt="Elegant master bedroom" />
-      <div class="custom-container">
-        <div class="experience-content">
-          <h2 class="heading-large">Experience the<br />exceptional</h2>
-          <div class="project-navigation">
-            <a href="#" class="project-link">View Project</a>
-            <div class="project-divider"></div>
-            <span class="project-pagination">1 - 7</span>
-            <span class="project-label">Browning</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Founder Section -->
-    <section class="founder-section">
-      <div class="custom-container">
-        <div class="founder-grid">
-          <div class="founder-content">
-            <h2 class="heading-large">
-              I've spent<br />more than<br />25 years
-            </h2>
-            <p class="body-text">
-              Building homes throughout Boone and Hamilton County, and I can
-              tell you this with complete honesty. I've never built the same
-              home twice. Not because I don't know how, but rather because I
-              don't want to. When you genuinely listen to people, when you pay
-              attention to the small things they care about, every house becomes
-              its own story. That's what draws me into this work.
-            </p>
-            <div class="founder-signature">
-              <img src="images/signature.png" alt="Joe Viewegh signature" />
-            </div>
-            <p class="founder-name">Joe Viewegh</p>
-            <p class="founder-title">Owner & CE</p>
-            <a href="#" class="btn-primary">Contact Us</a>
-          </div>
-          <div class="founder-image">
-            <img src="images/founder-photo.jpg" alt="Joe Viewegh, Owner & CE" />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Crafted Homes Hero -->
-    <section class="crafted-hero">
-      <img
-        src="images/crafted-homes-bg.jpg"
-        alt="Blue sky background"
-        class="bg-image"
-      />
-      <div class="crafted-hero-content">
-        <h2 class="heading-hero">Crafted Homes</h2>
-        <img
-          src="images/house-exterior.png"
-          alt="Modern craftsman-style home"
-          class="house-image"
-        />
-      </div>
-    </section>
-
-    <!-- When You Build With Us Section -->
-    <section class="build-section">
-      <div class="custom-container">
-        <div class="build-header">
-          <h2 class="heading-large">When you build with us</h2>
-          <p class="body-text">
-            You're not stepping into a system designed to push you through as
-            fast as possible. You're stepping into a relationship that feels
-            personal from the first conversation. We get to know you. We ask
-            questions. We look at inspiration photos and talk through what you
-            love about each one. We learn your rhythms, your plans, your quirks,
-            and we build around those. Custom is not a style. Custom is an
-            experience, and here at Viewegh Crafted Homes, we live for that
-            experience.
-          </p>
-          <a href="#" class="btn-primary">View All</a>
-        </div>
-        <div class="blog-grid">
-          <a href="#" class="blog-card">
-            <img
-              src="images/blog-bathroom-1.jpg"
-              alt="Luxury bathroom with gold fixtures"
-            />
-            <p class="blog-card-meta">Nov 14, 2025 / 6 min read</p>
-            <h3 class="blog-card-title">
-              Designing Inclusive Spaces: Accessibility in Urban Areas
-            </h3>
-          </a>
-          <a href="#" class="blog-card">
-            <img
-              src="images/blog-living-room.jpg"
-              alt="Two-story living room with exposed beams"
-            />
-            <p class="blog-card-meta">Nov 14, 2025 / 6 min read</p>
-            <h3 class="blog-card-title">
-              Designing Inclusive Spaces: Accessibility in Urban Areas
-            </h3>
-          </a>
-          <a href="#" class="blog-card">
-            <img
-              src="images/blog-bathroom-2.jpg"
-              alt="Modern bathroom with teal vanity"
-            />
-            <p class="blog-card-meta">Nov 14, 2025 / 6 min read</p>
-            <h3 class="blog-card-title">
-              Designing Inclusive Spaces: Accessibility in Urban Areas
-            </h3>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Final CTA Section -->
-    <section class="final-cta">
-      <img
-        src="images/pool-house-background.jpg"
-        alt="Luxury backyard with pool"
-      />
-      <div class="final-cta-content">
-        <p>
-          If you're looking for a home that feels like yours before you even
-          move in, you're in the right place.
-        </p>
-        <a href="#" class="btn-primary">Start a Conversation</a>
-      </div>
-    </section>
-
     <!-- Footer -->
     <footer class="footer">
       <div class="custom-container">
