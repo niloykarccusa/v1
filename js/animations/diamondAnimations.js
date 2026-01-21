@@ -8,8 +8,8 @@ export function enterDiamond(section, clockwise = true) {
     {
       scale: 1,
 
-      rotation: clockwise ? 360 * 6 : -360 * 6,
-      duration: 3.5,
+      rotation: clockwise ? 360 * 3 : -360 * 3,
+      duration: 5,
       ease: "power3.out",
     },
   );
@@ -22,8 +22,8 @@ export function leaveDiamond(section, clockwise = true) {
   gsap.to(diamond, {
     scale: 0.4,
 
-    rotation: clockwise ? -360 * 6 : 360 * 6,
-    duration: 3,
+    rotation: clockwise ? -360 * 3 : 360 * 3,
+    duration: 5,
     ease: "power2.in",
   });
 }

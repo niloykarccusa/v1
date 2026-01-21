@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -23,7 +23,7 @@
     />
     <link rel="stylesheet" href="css/customstyle.css" />
     <style>
-      .doorstep-slide {
+      /* .doorstep-slide {
         height: 100%;
       }
 
@@ -40,10 +40,10 @@
         vertical-align: bottom;
       }
 
-      .swiper-wrapper .swiper-slide:nth-child(even) {
+      .doorstepSwiper .swiper-wrapper .swiper-slide:nth-child(even) {
         width: 240px !important;
         height: 100%;
-      }
+      } */
 
       @keyframes rotateLine {
         0% {
@@ -126,6 +126,11 @@
         height: 100vh;
         opacity: 0;
         visibility: hidden;
+      }
+      .triangle-part {
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
       .beige {
         background-color: #e8eddf;
@@ -330,15 +335,77 @@
       </div>
       <!-- Experience Exceptional Section -->
       <section class="experience-section">
-        <img src="images/bedroom-background.jpg" alt="Elegant master bedroom" />
-        <div class="custom-container">
-          <div class="experience-content">
-            <h2 class="heading-large">Experience the<br />exceptional</h2>
-            <div class="project-navigation">
-              <a href="#" class="project-link">View Project</a>
-              <div class="project-divider"></div>
-              <span class="project-pagination">1 - 7</span>
-              <span class="project-label">Browning</span>
+        <div class="container-fluid p-0">
+          <div class="row mx-auto">
+            <div class="col-12 p-0">
+              <div class="swiper expSwiper">
+                <div class="swiper-wrapper">
+                  <!-- Slide 1 -->
+                  <div class="swiper-slide">
+                    <div class="exp-part" id="experience">
+                      <img
+                        src="images/bedroom-background.jpg"
+                        alt="Elegant master bedroom"
+                      />
+                      <div class="experience-content custom-container">
+                        <div class="slide-title-heading">
+                          <h2 class="heading-large">
+                            Experience the<br />exceptional
+                          </h2>
+                        </div>
+                        <div class="project-navigation">
+                          <a href="#" class="project-link">View Project</a>
+                          <div class="project-divider"></div>
+                          <span class="project-pagination">1 - 7</span>
+                          <span class="project-label">Browning</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="exp-part" id="experience">
+                      <img
+                        src="images/bedroom-background.jpg"
+                        alt="Elegant master bedroom"
+                      />
+                      <div class="custom-container experience-content">
+                        <div class="slide-title-heading">
+                          <h2 class="heading-large">
+                            Experience the<br />exceptional
+                          </h2>
+                        </div>
+                        <div class="project-navigation">
+                          <a href="#" class="project-link">View Project</a>
+                          <div class="project-divider"></div>
+                          <span class="project-pagination">2 - 7</span>
+                          <span class="project-label">Browning</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div id="experience" class="exp-part">
+                      <img
+                        src="images/bedroom-background.jpg"
+                        alt="Elegant master bedroom"
+                      />
+                      <div class="experience-content custom-container">
+                        <div class="slide-title-heading">
+                          <h2 class="heading-large">
+                            Experience the<br />exceptional
+                          </h2>
+                        </div>
+                        <div class="project-navigation">
+                          <a href="#" class="project-link">View Project</a>
+                          <div class="project-divider"></div>
+                          <span class="project-pagination">3 - 7</span>
+                          <span class="project-label">Browning</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -528,24 +595,47 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <!--swiper-->
     <script>
+      // document.addEventListener("DOMContentLoaded", function () {
+      //   new Swiper(".doorstepSwiper", {
+      //     slidesPerView: 3,
+      //     spaceBetween: 56,
+      //     loop: true,
+      //     pagination: {
+      //       el: ".swiper-pagination",
+      //       clickable: true,
+      //     },
+      //     breakpoints: {
+      //       320: {
+      //         slidesPerView: 1,
+      //       },
+      //       768: {
+      //         slidesPerView: 2,
+      //       },
+      //       1024: {
+      //         slidesPerView: 3,
+      //       },
+      //     },
+      //   });
+      // });
+
       document.addEventListener("DOMContentLoaded", function () {
-        new Swiper(".doorstepSwiper", {
-          slidesPerView: 3,
-          spaceBetween: 56,
+        new Swiper(".expSwiper", {
+          slidesPerView: 1,
           loop: true,
-          pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-          },
+          autoplay: false,
+          //                pagination: {
+          //                    el: '.swiper-pagination',
+          //                    clickable: true
+          //                },
           breakpoints: {
             320: {
               slidesPerView: 1,
             },
             768: {
-              slidesPerView: 2,
+              slidesPerView: 1,
             },
             1024: {
-              slidesPerView: 3,
+              slidesPerView: 1,
             },
           },
         });
