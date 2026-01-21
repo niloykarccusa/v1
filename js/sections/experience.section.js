@@ -1,13 +1,29 @@
 export function createExperienceSection(el) {
+    const image = el.querySelector("img");
+    let tl;
+
+    function buildTimeline() {
+        tl = gsap.timeline({paused: true});
+
+        tl.fromTo(
+            image,
+            { scale: 1 },
+            { scale: 1.5,duration:2}
+        );
+    }
+
     return {
         el,
 
         onEnter(direction) {
-            console.log("Enter Experience")
+            if (!tl) buildTimeline();
+
+            if (direction === 1) {
+                tl.play(0);
+            }
         },
 
         onLeave(direction) {
-            console.log("Leave Experience")
         }
     };
 }
