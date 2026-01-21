@@ -60,10 +60,10 @@ function goto(targetIndex, direction) {
   animating = true;
 
   const next = SectionRegistry.getByIndex(targetIndex);
-
+  const duration = next.transitionDuration ?? 1.6;
   gsap
     .timeline({
-      defaults: { duration: 5, ease: "power3.inOut" },
+      defaults: { duration: duration, ease: "power3.inOut" },
       onComplete: () => {
         animating = false;
         SectionRegistry.currentIndex = targetIndex;

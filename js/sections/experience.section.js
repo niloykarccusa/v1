@@ -24,5 +24,6 @@ export function createExperienceSection(el) {
     },
 
     onLeave(direction) {},
+    transitionDuration: 5
   };
 }
