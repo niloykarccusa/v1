@@ -1,38 +1,40 @@
 export function createCraftedHeroSection(el) {
-    const heading = el.querySelector(".heading-hero");
-    let tl;
+  const heading = el.querySelector(".heading-hero");
+  let tl;
 
-    function buildTimeline() {
-        tl = gsap.timeline({
-            paused: true,
-            defaults: { duration: 0.8, ease: "power3.out" }
-        });
+  function buildTimeline() {
+    tl = gsap.timeline({
+      paused: true,
+      defaults: { duration: 0.8, ease: "power3.out" },
+    });
 
-        tl.fromTo(
-            heading,
-            {
-                y: 0,
-                autoAlpha: 0
-            },
-            {
-                y: -300,
-                autoAlpha: 1
-            }
-        );
-    }
+    tl.fromTo(
+      heading,
+      {
+        y: 0,
+        autoAlpha: 0,
+      },
+      {
+        y: -300,
+        autoAlpha: 1,
+        duration: 2.5,
+      },
+      1.5,
+    );
+  }
 
-    return {
-        el,
+  return {
+    el,
 
-        onEnter(direction) {
-            if (!tl) buildTimeline();
-            tl.play();
-        },
+    onEnter(direction) {
+      if (!tl) buildTimeline();
+      tl.play();
+    },
 
-        onLeave(direction) {
-            if (tl) tl.reverse();
-        },
+    onLeave(direction) {
+      if (tl) tl.reverse();
+    },
 
-        transitionDuration: 3,
-    };
+    transitionDuration: 3,
+  };
 }

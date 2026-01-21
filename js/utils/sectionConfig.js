@@ -8,36 +8,36 @@ import { createBuildSection } from "../sections/build.section.js";
 import { createCtaSection } from "../sections/cta.section.js";
 
 export const SECTION_CONFIG = [
-    // {
-    //     selector: ".hero-section",
-    //     factory: createHeroSection
-    // },
-    // {
-    //     selector: ".people-section",
-    //     factory: createDoorstepSection
-    // },
-    // {
-    //     selector: ".triangle-part",
-    //     factory: createDiamondSection
-    // },
-    {
-        selector: ".experience-section",
-        factory: createExperienceSection
-    },
-    {
-        selector: ".founder-section",
-        factory: createFounderSection
-    },
-    {
-        selector: ".crafted-hero",
-        factory: createCraftedHeroSection
-    },
-    {
-        selector: ".build-section",
-        factory: createBuildSection
-    },
-    {
-        selector: ".final-cta",
-        factory: createCtaSection
-    }
+  {
+    selector: ".hero-section",
+    factory: createHeroSection,
+  },
+  {
+    selector: ".people-section",
+    factory: createDoorstepSection,
+  },
+  {
+    selector: ".triangle-part",
+    factory: createDiamondSection,
+  },
+  {
+    selector: ".experience-section",
+    factory: createExperienceSection,
+  },
+  {
+    selector: ".founder-section",
+    factory: createFounderSection,
+  },
+  {
+    selector: ".crafted-hero",
+    factory: createCraftedHeroSection,
+  },
+  {
+    selector: ".build-section",
+    factory: createBuildSection,
+  },
+  {
+    selector: ".final-cta",
+    factory: createCtaSection,
+  },
 ];

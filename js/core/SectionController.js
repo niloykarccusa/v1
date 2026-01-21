@@ -60,6 +60,19 @@ function goto(targetIndex, direction) {
   animating = true;
 
   const next = SectionRegistry.getByIndex(targetIndex);
+
+  if (next.el.classList.contains(".people-section") && direction == 1) {
+    document.querySelectorAll(".header-nav").forEach((el) => {
+      el.style.display = "none";
+    });
+  }
+
+  if (next.el.classList.contains("..hero-section") && direction == -1) {
+    document.querySelectorAll(".header-nav").forEach((el) => {
+      el.style.display = "block";
+    });
+  }
+
   const duration = next.transitionDuration ?? 1.6;
   gsap
     .timeline({
