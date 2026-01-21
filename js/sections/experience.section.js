@@ -17,13 +17,12 @@ export function createExperienceSection(el) {
 
     onEnter(direction) {
       if (!tl) buildTimeline();
-
-      if (direction === 1) {
-        tl.play(0);
-      }
+      tl.play(0);
     },
 
-    onLeave(direction) {},
+    onLeave(direction) {
+        tl.reverse();
+    },
     transitionDuration: 5
   };
 }
