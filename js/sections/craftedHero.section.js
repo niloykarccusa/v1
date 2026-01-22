@@ -4,37 +4,40 @@ export function createCraftedHeroSection(el) {
 
   function buildTimeline() {
     tl = gsap.timeline({
-      paused: true,
-      defaults: { duration: 0.8, ease: "power3.out" },
+      paused: true
     });
 
     tl.fromTo(
       heading,
       {
-        y: 0,
+        y:-300,
         autoAlpha: 0,
+        scaleX: 0.2,          
+        letterSpacing: "-0.15em",
+        transformOrigin: "center center"
       },
       {
-        y: -300,
         autoAlpha: 1,
-        duration: 2.5,
+        scaleX: 1,
+        letterSpacing: "0em",
+        duration: 2.5
       },
-      1.5,
+      2
     );
   }
 
   return {
     el,
 
-    onEnter(direction) {
+    onEnter() {
       if (!tl) buildTimeline();
       tl.play();
     },
 
-    onLeave(direction) {
+    onLeave() {
       if (tl) tl.reverse();
     },
 
-    transitionDuration: 3,
+    transitionDuration: 2
   };
 }
