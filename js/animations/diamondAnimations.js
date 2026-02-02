@@ -4,14 +4,18 @@ export function enterDiamond(section, clockwise = true) {
 
   gsap.fromTo(
     diamond,
-    { scale: 0.4 },
+    {
+      scale: 0.35,
+      autoAlpha: 0.15,
+      rotation: 0,
+    },
     {
       scale: 1,
-
-      rotation: clockwise ? 360 * 3 : -360 * 3,
-      duration: 5,
+      autoAlpha: 1,
+      rotation: clockwise ? 360 * 1 : -360 * 1,
+      duration: 10,
       ease: "power3.out",
-    },
+    }
   );
 }
 
@@ -20,29 +24,27 @@ export function leaveDiamond(section, clockwise = true) {
   if (!diamond) return;
 
   gsap.to(diamond, {
-    scale: 0.4,
-
-    rotation: clockwise ? -360 * 3 : 360 * 3,
-    duration: 5,
+    scale: 0.35,
+    autoAlpha: 0,
+    rotation: clockwise ? -360 * 1 : 360 * 1,
+    duration: 10,
     ease: "power2.in",
   });
 }
 
-export function controlWhiteSides(section, direction, onComplete) {
-  const left = section.el.querySelector(".left-side");
-  const right = section.el.querySelector(".right-1");
+export function controlWhiteSides(section, show = true) {
+  const left = section.querySelector(".left-side");
+  const right = section.querySelector(".right-1");
 
-  if (!left || !right) {
-    onComplete?.();
-    return;
-  }
+  if (!left || !right) return;
+
   if (!section._whiteTL) {
     section._whiteTL = gsap.timeline({
       paused: true,
-      defaults: { duration: 1.6, ease: "power3.out" },
+      defaults: { duration: 5, ease: "power3.out" },
     });
 
-    section._whiteTL.fromTo(left, { x: 0 }, { x: -1 }, 0).fromTo(
+    section._whiteTL.fromTo(left, { x: 100 }, { x: -1 }, 0).fromTo(
       right,
       {
         x: window.innerWidth,
@@ -59,10 +61,7 @@ export function controlWhiteSides(section, direction, onComplete) {
 
   const tl = section._whiteTL;
 
-  tl.eventCallback("onComplete", onComplete);
-  tl.eventCallback("onReverseComplete", onComplete);
-
-  if (direction === 1) {
+  if (show) {
     gsap.set(right, { display: "block" });
     tl.play();
   } else {

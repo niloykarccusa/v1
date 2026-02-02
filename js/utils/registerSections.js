@@ -1,8 +1,10 @@
 import { SectionRegistry } from "../core/SectionRegistry.js";
-import { SECTION_CONFIG } from "./sectionConfig.js";
+import { getSectionConfig  } from "./sectionConfig.js";
 
 export function registerAllSections() {
-    SECTION_CONFIG.forEach(({ selector, factory }) => {
+    const page =document.body.dataset.page || "home";
+    const config = getSectionConfig(page);
+    config.forEach(({ selector, factory }) => {
         document.querySelectorAll(selector).forEach(el => {
             const section = factory(el);
             SectionRegistry.register(section);

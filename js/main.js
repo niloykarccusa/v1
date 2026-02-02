@@ -1,5 +1,6 @@
 import { initSectionController } from "./core/SectionController.js";
 import { registerAllSections } from "./utils/registerSections.js";
+import { playLoader } from "./animations/loader.js";
 
 function onPageLoad() {
     document.querySelectorAll(".right-1").forEach(el => {
@@ -8,7 +9,9 @@ function onPageLoad() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    registerAllSections();
-    initSectionController();
-    onPageLoad();
+    playLoader(() => {
+        registerAllSections();
+        initSectionController();
+        onPageLoad();
+    });
 });

@@ -643,7 +643,7 @@ img {
 /* ===================================
    FINAL CTA SECTION
    =================================== */
-.final-cta {
+/* .final-cta {
   position: relative;
   min-height: 512px;
   display: flex;
@@ -692,7 +692,69 @@ img {
   font-weight: 300;
   text-transform: uppercase;
   margin-bottom: 40px;
+} */
+
+.final-cta {
+  position: relative;
+  min-height: 512px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
 }
+
+.final-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.final-cta img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  opacity: 0;
+}
+
+.cta-slices {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.cta-slice {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  will-change: transform;
+}
+
+.final-cta-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  color: var(--color-white);
+  max-width: 1267px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.final-cta-content p {
+  font-size: var(--font-size-h2);
+  line-height: 50px;
+  font-weight: 300;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
 
 /* ===================================
    FOOTER

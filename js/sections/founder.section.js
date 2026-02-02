@@ -6,7 +6,6 @@ export function createFounderSection(el) {
     let tl;
 
     function reset() {
-        console.log("reset")
         gsap.to(founder, {
                     autoAlpha: 1,
                     xPercent: 0,

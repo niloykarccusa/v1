@@ -48,6 +48,7 @@ export function createBuildSection(el) {
 
     onLeave() {
         tl.reverse();
-    }
+    },
+    transitionDuration: 4.5,
   };
 }

@@ -3,10 +3,39 @@ import { lockScroll, unlockScroll } from "../utils/lockScroll.js";
 import { isRightVisible } from "../utils/whiteState.js";
 import { controlWhiteSides } from "../animations/diamondAnimations.js";
 
-gsap.registerPlugin(Observer);
+gsap.registerPlugin(Observer,ScrollTrigger);
 
 let animating = false;
 let observer;
+
+function disableObserverForFooter() {
+  if (observer) observer.disable();
+  unlockScroll();
+}
+
+function enableObserverFromFooter() {
+  if (observer) observer.enable();
+  lockScroll();
+}
+
+function setupFooterScrollTrigger() {
+  const footer = document.querySelector("footer");
+  if (!footer) return;
+  ScrollTrigger.create({
+  trigger: footer,
+  start: "top bottom",
+  end: "top+=10% bottom",
+  onEnterBack(self) {
+    enableObserverFromFooter();
+
+    SectionRegistry.currentIndex =
+      SectionRegistry.sections.length - 1;
+
+    ScrollTrigger.refresh();
+  },
+});
+
+}
 
 export function initSectionController() {
   const sections = SectionRegistry.sections;
@@ -25,37 +54,51 @@ export function initSectionController() {
     onUp: () => goto(SectionRegistry.currentIndex - 1, -1),
   });
 
+  const lastSection = SectionRegistry.sections.at(-1).el;
+
   lockScroll();
+  setupFooterScrollTrigger();
 }
 
 function goto(targetIndex, direction) {
-  if (animating || !SectionRegistry.canGoTo(targetIndex)) return;
+  if (animating) return;
 
+  const lastIndex = SectionRegistry.sections.length - 1;
   const current = SectionRegistry.getCurrent();
 
-  if (current.el.classList.contains("white")) {
-    const rightVisible = isRightVisible(current);
-    if (!rightVisible && direction === 1) {
-      console.log("Invisible Down");
-      animating = true;
-      controlWhiteSides(current, 1, () => {
-        animating = false;
-      });
-      return;
-    }
-
-    if (rightVisible && direction === -1) {
-      console.log("Visible Up");
-      animating = true;
-      controlWhiteSides(current, -1, () => {
-        animating = false;
-        document.querySelectorAll(".right-1").forEach((el) => {
-          el.style.display = "none";
-        });
-      });
-      return;
-    }
+  if (
+    SectionRegistry.currentIndex === lastIndex &&
+    direction === 1
+  ) {
+    disableObserverForFooter();
+    return;
   }
+
+  if (!SectionRegistry.canGoTo(targetIndex)) return;
+
+  // if (current.el.classList.contains("white")) {
+  //   const rightVisible = isRightVisible(current);
+  //   if (!rightVisible && direction === 1) {
+  //     console.log("Invisible Down");
+  //     animating = true;
+  //     controlWhiteSides(current, 1, () => {
+  //       animating = false;
+  //     });
+  //     return;
+  //   }
+
+  //   if (rightVisible && direction === -1) {
+  //     console.log("Visible Up");
+  //     animating = true;
+  //     controlWhiteSides(current, -1, () => {
+  //       animating = false;
+  //       document.querySelectorAll(".right-1").forEach((el) => {
+  //         el.style.display = "none";
+  //       });
+  //     });
+  //     return;
+  //   }
+  // }
 
   animating = true;
 
