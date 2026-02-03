@@ -13,6 +13,12 @@ import { createCarriedSection } from "../sections/about.carried.section.js";
 import { createCraftedSection } from "../sections/about.crafted.section.js";
 import { createWorkedSection } from "../sections/about.worked.section.js";
 import { createChangeSection } from "../sections/about.change.section.js";
+import { createCustomBannerSection } from "../sections/custom.banner.section.js";
+import { createCustomSecondSection } from "../sections/custom.second.section.js";
+import { createTrendSection } from "../sections/custom.trend.section.js";
+import { createPhraseSection } from "../sections/custom.phrase.section.js";
+import { createBudgetSection } from "../sections/custom.budget.section.js";
+import { createCustomCtaSection } from "../sections/custom.cta.section.js";
 
 const PAGE_SECTIONS = {
   home:[
@@ -77,6 +83,36 @@ const PAGE_SECTIONS = {
     {
       selector: ".about-crafted",
       factory: createCraftedSection,
+    },
+  ],
+  custom: [
+    {
+      selector: ".banner-section",
+      factory: createBannerSection,
+    },
+    {
+      selector: ".second-section",
+      factory: createCustomSecondSection,
+    },
+    {
+      selector: ".doorstep-section",
+      factory: createDoorstepSection,
+    },
+    {
+      selector: ".trend-section",
+      factory: createTrendSection,
+    },
+    {
+      selector: ".phrase-section",
+      factory: createPhraseSection,
+    },
+    {
+      selector: ".budget-section",
+      factory: createBudgetSection,
+    },
+    {
+      selector: ".final-cta",
+      factory: createCustomCtaSection,
     },
   ]
 };
