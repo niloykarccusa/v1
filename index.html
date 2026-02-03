@@ -591,27 +591,13 @@
       </div>
     </footer>
     <div id="loader">
-      <svg viewBox="0 0 200 200" class="loader-logo" id="logoMask">
-        <polygon
-          points="100,25 125,50 100,75 75,50"
-          fill="none"
-          stroke="#000"
-          stroke-width="1"
-        />
-        <polygon
-          points="60,75 100,115 140,75 130,65 100,95 70,65"
-          fill="none"
-          stroke="#000"
-          stroke-width="1"
-        />
-        <polygon
-          points="35,105 100,170 165,105 150,95 100,145 50,95"
-          fill="none"
-          stroke="#000"
-          stroke-width="1"
-        />
-      </svg>
-      <!-- <img src="images/logo-new.png" alt="Loading..." class="loader-logo" /> -->
+      <div class="mask">
+        <div class="logo">
+          <div class="shape layer-1"></div>
+          <div class="shape layer-2"></div>
+          <div class="shape layer-3"></div>
+        </div>
+      </div>
     </div>
 
     <style>
@@ -628,6 +614,81 @@
       .loader-logo {
         width: 140px;
         transform-origin: center;
+      }
+    </style>
+    <style>
+      /*
+        #page1 {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 50px;
+            position: absolute;
+            z-index: 1;
+            overflow: hidden;
+                        background-color: white;
+        }
+*/
+      .mask {
+        height: 100vh;
+        width: 100%;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        mix-blend-mode: screen;
+      }
+
+      .wrapper {
+        position: fixed;
+        z-index: -1;
+        inset: 0;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+      }
+
+      .logo {
+        position: relative;
+        width: 272px;
+        height: 272px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .shape {
+        position: absolute;
+        transform: rotate(45deg);
+        box-sizing: border-box;
+      }
+
+      .layer-1 {
+        width: 68px;
+        height: 68px;
+        background-color: #000000;
+        z-index: 3;
+        top: 15;
+      }
+
+      .layer-2 {
+        width: 130px;
+        height: 130px;
+        border-bottom: 30px solid #000000;
+        border-right: 30px solid #000000;
+        z-index: 2;
+        top: 25px;
+      }
+
+      .layer-3 {
+        width: 195px;
+        height: 195px;
+        border-bottom: 30px solid #000000;
+        border-right: 30px solid #000000;
+        z-index: 1;
+        top: 35px;
       }
     </style>
 
