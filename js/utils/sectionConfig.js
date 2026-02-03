@@ -7,7 +7,7 @@ import { createExperienceSection } from "../sections/experience.section.js";
 import { createBuildSection } from "../sections/build.section.js";
 import { createCtaSection } from "../sections/cta.section.js";
 
-const PAGE_SECTIONS = {
+const SECTION_CONFIG = {
   home: [
     {
       selector: ".hero-section",
