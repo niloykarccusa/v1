@@ -1,7 +1,5 @@
 import { SectionRegistry } from "./SectionRegistry.js";
 import { lockScroll, unlockScroll } from "../utils/lockScroll.js";
-import { isRightVisible } from "../utils/whiteState.js";
-import { controlWhiteSides } from "../animations/diamondAnimations.js";
 
 gsap.registerPlugin(Observer,ScrollTrigger);
 
