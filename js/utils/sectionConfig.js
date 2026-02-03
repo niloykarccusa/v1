@@ -7,8 +7,8 @@ import { createExperienceSection } from "../sections/experience.section.js";
 import { createBuildSection } from "../sections/build.section.js";
 import { createCtaSection } from "../sections/cta.section.js";
 
-const SECTION_CONFIG = {
-  home:[
+const PAGE_SECTIONS = {
+  home: [
     {
       selector: ".hero-section",
       factory: createHeroSection,
@@ -41,7 +41,7 @@ const SECTION_CONFIG = {
       selector: ".final-cta",
       factory: createCtaSection,
     },
-  ]
+  ],
 };
 
 export function getSectionConfig(page) {
