@@ -15,68 +15,131 @@
     />
     <link href="css/customstyle.css" rel="stylesheet" type="text/css" />
     <style>
-      #page1 {
+      /*
+        #page1 {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 50px;
+            position: absolute;
+            z-index: 1;
+            overflow: hidden;
+                        background-color: white;
+        }
+*/
+      .mask {
         height: 100vh;
         width: 100%;
+        background: #fff;
         display: flex;
-        align-items: center;
         justify-content: center;
-        padding-top: 50px;
-        position: absolute;
-        z-index: 1;
-        overflow: hidden;
-        /*            background-color: white;*/
+        align-items: center;
+        mix-blend-mode: screen;
       }
 
-      body {
-        height: 100vh;
-        background: #fff;
-        overflow: hidden;
+      .wrapper {
+        position: fixed;
+        z-index: -1;
+        inset: 0;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
       }
 
       .logo {
         position: relative;
-        width: 200px;
-        height: 200px;
+        width: 272px;
+        height: 272px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .shape {
+        position: absolute;
+        transform: rotate(45deg);
+        box-sizing: border-box;
+      }
+
+      .layer-1 {
+        width: 68px;
+        height: 68px;
+        background-color: #000000;
+        z-index: 3;
+        top: 15;
+      }
+
+      .layer-2 {
+        width: 130px;
+        height: 130px;
+        border-bottom: 30px solid #000000;
+        border-right: 30px solid #000000;
+        z-index: 2;
+        top: 25px;
+      }
+
+      .layer-3 {
+        width: 195px;
+        height: 195px;
+        border-bottom: 30px solid #000000;
+        border-right: 30px solid #000000;
+        z-index: 1;
+        top: 35px;
       }
     </style>
   </head>
 
   <body>
+    <!--
     <div id="page1">
-      <div id="expo">
-        <!--            <img src="images/logo-new.png" alt="" class="w-100">-->
-        <img src="images/2.png" alt="" class="w-100" />
-      </div>
+        <div id="expo">
+                        <img src="images/logo-new.png" alt="" class="w-100">
+                        <img src="images/2.png" alt="" class="w-100">
+        </div>
     </div>
-    <section class="banner-site position-relative">
-      <img src="images/banner.png" alt="banner-img" class="w-100" />
-      <div class="container custom-container position-absolute">
-        <div class="row">
-          <div class="col-12">
-            <div class="banner-content">
-              <div class="">
-                <h2>Custom Built Homes with Experience</h2>
-              </div>
-              <div class="row">
-                <div class="col-md-7">
-                  <p>
-                    A home is more than a structure — it’s where life unfolds.
-                    From morning hallway races to quiet coffee moments, your
-                    home should reflect the life you’re building inside it.
-                  </p>
-                </div>
-                <div
-                  class="col-md-5 d-flex justify-content-end align-items-center"
-                >
-                  <a href="#" class="project-btn">View Project</a>
+-->
+    <div class="load-wrap">
+      <div class="mask">
+        <div class="logo">
+          <div class="shape layer-1"></div>
+          <div class="shape layer-2"></div>
+          <div class="shape layer-3"></div>
+        </div>
+      </div>
+      <div class="wrapper">
+        <section class="banner-site position-relative">
+          <img src="images/banner.png" alt="banner-img" class="w-100" />
+          <div class="container custom-container position-absolute">
+            <div class="row">
+              <div class="col-12">
+                <div class="banner-content">
+                  <div class="">
+                    <h2>Custom Built Homes with Experience</h2>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-7">
+                      <p>
+                        A home is more than a structure — it’s where life
+                        unfolds. From morning hallway races to quiet coffee
+                        moments, your home should reflect the life you’re
+                        building inside it.
+                      </p>
+                    </div>
+                    <div
+                      class="col-md-5 d-flex justify-content-end align-items-center"
+                    >
+                      <a href="#" class="project-btn">View Project</a>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        </section>
       </div>
-    </section>
+    </div>
 
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
@@ -84,24 +147,24 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/EasePack.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!--    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/EasePack.min.js"></script>-->
 
     <script>
-      gsap.registerPlugin(EasePack);
+      //        gsap.registerPlugin(EasePack)
 
-      gsap.fromTo(
-        "#expo img",
-        {
-          scale: 0.1,
+      gsap.to(".logo", {
+        scale: 300,
+
+        scrollTrigger: {
+          trigger: ".load-wrap",
+          scrub: 1,
+          pin: true,
+          start: "top top",
+          end: "+=700",
+          ease: "none",
         },
-        {
-          scale: 8,
-          duration: 7,
-          fade: 0.7,
-          ease: "expoScale(1, 12)",
-          repeat: -1,
-        },
-      );
+      });
     </script>
   </body>
 </html>
