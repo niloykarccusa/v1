@@ -3,12 +3,10 @@ export function playLoader(onComplete) {
   const mask = loader.querySelector(".mask");
   const logo = loader.querySelector(".logo");
   const core = loader.querySelector(".layer-1");
+  const core2 = loader.querySelector(".layer-2");
+  const core3 = loader.querySelector(".layer-3");
 
-  gsap.set(logo, {
-    scale: 1,
-    y: 0,
-    transformOrigin: "center center",
-  });
+  document.body.style.overflow = "hidden";
 
   gsap.set(core, {
     scale: 1,
@@ -16,17 +14,40 @@ export function playLoader(onComplete) {
   });
 
   const tl = gsap.timeline({ delay: 0.3 });
-  tl.to(logo, {
-    scale: 1.15,
-    y: 120,
-    duration: 1600,
-    ease: "power2.out",
-  });
+  // tl.to(
+  //   mask,
+  //   {
+  //     scale:5,
+  //     y:250,
+  //     duration: 4,
+  //     ease: "expo.inOut",
+  //   },
+  //   0,
+  // );
+
   tl.to(
     core,
     {
-      scale: 60,
-      duration: 1600,
+      scale:30,
+      duration: 4.8,
+      ease: "expo.inOut",
+    },
+    0,
+  );
+  tl.to(
+    core2,
+    {
+      scale: 30,
+      duration: 4.8,
+      ease: "expo.inOut",
+    },
+    0,
+  );
+  tl.to(
+    core3,
+    {
+      scale: 30,
+      duration: 4.8,
       ease: "expo.inOut",
     },
     0,
@@ -40,7 +61,7 @@ export function playLoader(onComplete) {
       ease: "power2.out",
       onComplete: () => {
         mask.remove();
-        // document.body.style.overflow = "auto";
+        document.body.style.overflow = "auto";
         onComplete?.();
       },
     },
