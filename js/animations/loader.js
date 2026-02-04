@@ -19,14 +19,14 @@ export function playLoader(onComplete) {
   tl.to(logo, {
     scale: 1.15,
     y: 120,
-    duration: 1.6,
+    duration: 1600,
     ease: "power2.out",
   });
   tl.to(
     core,
     {
       scale: 60,
-      duration: 1.6,
+      duration: 1600,
       ease: "expo.inOut",
     },
     0,

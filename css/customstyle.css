@@ -136,7 +136,7 @@ body {
   font-family: var(--font-body);
   color: var(--color-black);
   line-height: 1.6;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
 }
 
 img {
@@ -754,7 +754,6 @@ img {
   text-transform: uppercase;
   margin-bottom: 40px;
 }
-
 
 /* ===================================
    FOOTER
