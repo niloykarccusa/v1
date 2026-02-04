@@ -19,14 +19,14 @@ export function playLoader(onComplete) {
   tl.to(logo, {
     scale: 1.15,
     y: 120,
-    duration: 1,
+    duration: 1.6,
     ease: "power2.out",
   });
   tl.to(
     core,
     {
       scale: 60,
-      duration: 2.2,
+      duration: 1.6,
       ease: "expo.inOut",
     },
     0,
@@ -40,7 +40,7 @@ export function playLoader(onComplete) {
       ease: "power2.out",
       onComplete: () => {
         mask.remove();
-        document.body.style.overflow = "auto";
+        // document.body.style.overflow = "auto";
         onComplete?.();
       },
     },
