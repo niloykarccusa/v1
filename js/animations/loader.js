@@ -4,7 +4,7 @@ export function playLoader(onComplete) {
   const logo = loader.querySelector(".logo");
   const core = loader.querySelector(".layer-1");
 
-  gsap.set(mask, {
+  gsap.set(logo, {
     scale: 1,
     y: 0,
     transformOrigin: "center center",
@@ -16,10 +16,10 @@ export function playLoader(onComplete) {
   });
 
   const tl = gsap.timeline({ delay: 0.3 });
-  tl.to(mask, {
+  tl.to(logo, {
     scale: 1.15,
     y: 120,
-    duration: 10,
+    duration: 1,
     ease: "power2.out",
   });
   tl.to(
@@ -33,13 +33,13 @@ export function playLoader(onComplete) {
   );
 
   tl.to(
-    loader,
+    mask,
     {
       opacity: 0,
       duration: 0.4,
       ease: "power2.out",
       onComplete: () => {
-        loader.remove();
+        mask.remove();
         document.body.style.overflow = "auto";
         onComplete?.();
       },
