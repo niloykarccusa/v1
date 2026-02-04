@@ -1,5 +1,5 @@
 export function playLoader(onComplete) {
-  const loader = document.getElementById("loader");
+  const loader = document.getElementById("loader1");
   const mask = loader.querySelector(".mask");
   const logo = loader.querySelector(".logo");
   const core = loader.querySelector(".layer-1");
@@ -29,7 +29,7 @@ export function playLoader(onComplete) {
       duration: 2.2,
       ease: "expo.inOut",
     },
-    0
+    0,
   );
 
   tl.to(
@@ -44,6 +44,6 @@ export function playLoader(onComplete) {
         onComplete?.();
       },
     },
-    "-=0.3"
+    "-=0.3",
   );
 }
