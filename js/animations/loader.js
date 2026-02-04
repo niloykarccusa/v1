@@ -1,29 +1,42 @@
 export function playLoader(onComplete) {
   const loader = document.getElementById("loader");
-  const logo = loader.querySelector(".loader-logo");
-  gsap.set(logo, { scale: 0.4, y: 0, opacity: 1 });
+  const mask = loader.querySelector(".mask");
+  const logo = loader.querySelector(".logo");
+  const core = loader.querySelector(".layer-1");
+
+  gsap.set(mask, {
+    scale: 1,
+    y: 0,
+    transformOrigin: "center center",
+  });
+
+  gsap.set(core, {
+    scale: 1,
+    transformOrigin: "center center",
+  });
 
   const tl = gsap.timeline({ delay: 0.3 });
-
-  tl.to(logo, {
-    scale: 400,
-    y: 800,
-    duration: 2.5,
-    ease: "expo.inOut",
+  tl.to(mask, {
+    scale: 1.15,
+    y: 120,
+    duration: 10,
+    ease: "power2.out",
   });
   tl.to(
-    logo,
+    core,
     {
-      opacity: 0,
-      duration: 0.25,
+      scale: 60,
+      duration: 2.2,
+      ease: "expo.inOut",
     },
-    "-=0.3"
+    0
   );
+
   tl.to(
     loader,
     {
       opacity: 0,
-      duration: 0.35,
+      duration: 0.4,
       ease: "power2.out",
       onComplete: () => {
         loader.remove();
@@ -31,6 +44,6 @@ export function playLoader(onComplete) {
         onComplete?.();
       },
     },
-    "-=0.1"
+    "-=0.3"
   );
 }

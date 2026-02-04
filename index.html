@@ -176,6 +176,15 @@
     </header>
 
     <div class="observer-wrapper">
+      <div id="loader">
+        <div class="mask">
+          <div class="logo">
+            <div class="shape layer-1"></div>
+            <div class="shape layer-2"></div>
+            <div class="shape layer-3"></div>
+          </div>
+        </div>
+    </div>
       <!-- Hero Section -->
       <section class="hero-section">
         <img
@@ -590,7 +599,7 @@
         </div>
       </div>
     </footer>
-    <div id="loader">
+    <!-- <div id="loader">
       <div class="mask">
         <div class="logo">
           <div class="shape layer-1"></div>
@@ -598,39 +607,14 @@
           <div class="shape layer-3"></div>
         </div>
       </div>
-    </div>
-
+    </div> -->
     <style>
       #loader {
-        position: fixed;
+        position: absolute;
         inset: 0;
-        /* background: white; */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        z-index: 9999;
+        z-index: 10;
+        pointer-events: none;
       }
-
-      .loader-logo {
-        width: 140px;
-        transform-origin: center;
-      }
-    </style>
-    <style>
-      /*
-        #page1 {
-            height: 100vh;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding-top: 50px;
-            position: absolute;
-            z-index: 1;
-            overflow: hidden;
-                        background-color: white;
-        }
-*/
       .mask {
         height: 100vh;
         width: 100%;
