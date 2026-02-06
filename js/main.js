@@ -9,6 +9,7 @@ function onPageLoad() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    window.scrollTo(0, 0);
     playLoader(() => {
         registerAllSections();
         initSectionController();
