@@ -74,30 +74,6 @@ function goto(targetIndex, direction) {
 
   if (!SectionRegistry.canGoTo(targetIndex)) return;
 
-  // if (current.el.classList.contains("white")) {
-  //   const rightVisible = isRightVisible(current);
-  //   if (!rightVisible && direction === 1) {
-  //     console.log("Invisible Down");
-  //     animating = true;
-  //     controlWhiteSides(current, 1, () => {
-  //       animating = false;
-  //     });
-  //     return;
-  //   }
-
-  //   if (rightVisible && direction === -1) {
-  //     console.log("Visible Up");
-  //     animating = true;
-  //     controlWhiteSides(current, -1, () => {
-  //       animating = false;
-  //       document.querySelectorAll(".right-1").forEach((el) => {
-  //         el.style.display = "none";
-  //       });
-  //     });
-  //     return;
-  //   }
-  // }
-
   animating = true;
 
   const next = SectionRegistry.getByIndex(targetIndex);
