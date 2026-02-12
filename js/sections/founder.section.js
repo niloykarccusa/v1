@@ -1,79 +1,62 @@
 export function createFounderSection(el) {
-    const content = el.querySelector(".founder-content");
-    const image   = el.querySelector(".founder-image");
-    const founder=  el.querySelector(".founder-grid")
+  const content = el.querySelector(".founder-content");
+  const image = el.querySelector(".founder-image");
+  const founder = el.querySelector(".founder-grid");
 
-    let tl;
+  const tl = gsap.timeline({ paused: true });
 
-    function reset() {
-        gsap.to(founder, {
-                    autoAlpha: 1,
-                    xPercent: 0,
-                    yPercent: 0,
-                    duration: 1.2,
-                    ease: "power3.in"
-                })
-    }
+  if (content && image) {
+    tl.fromTo(
+      content,
+      {
+        autoAlpha: 0,
+        xPercent: -100,
+        yPercent: 100,
+      },
+      {
+        autoAlpha: 1,
+        xPercent: 0,
+        yPercent: 0,
+        duration: 2,
+        ease: "power3.out",
+      },
+      0
+    ).fromTo(
+      image,
+      {
+        autoAlpha: 0,
+        xPercent: 100,
+        yPercent: 100,
+      },
+      {
+        autoAlpha: 1,
+        xPercent: 0,
+        yPercent: 0,
+        duration: 2,
+        ease: "power3.out",
+      },
+      0
+    );
+  }
+  if (founder) {
+    tl.to(
+      founder,
+      {
+        autoAlpha: 0,
+        xPercent: -20,
+        yPercent: -20,
+        duration: 1,
+        ease: "power3.in",
+      },
+      ">1"
+    );
+  }
+  if (tl.duration() === 0) {
+    tl.to({}, { duration: 0.3 });
+  }
 
-    function buildTimeline() {
-        tl = gsap.timeline({
-            paused: true,
-            defaults: { duration: 3, ease: "power3.out" }
-        });
-
-        tl.fromTo(
-            content,
-            {
-                autoAlpha: 0,
-                xPercent: -100,
-                yPercent: 100
-            },
-            {
-                autoAlpha: 1,
-                xPercent: 0,
-                yPercent: 0
-            },
-            3
-        )
-        .fromTo(
-            image,
-            {
-                autoAlpha: 0,
-                xPercent: 100,
-                yPercent: 100
-            },
-            {
-                autoAlpha: 1,
-                xPercent: 0,
-                yPercent: 0
-            },
-            3
-        );
-    }
-
-    return {
-        el,
-        onEnter(direction) {
-            if (!tl) buildTimeline();
-            tl.play();
-        },
-
-        onLeave(direction) {
-            if (direction === -1 && tl) {
-                tl.reverse();
-                return;
-            }
-            if (direction === 1) {
-                gsap.to(founder, {
-                    autoAlpha: 0,
-                    xPercent: -20,
-                    yPercent: -20,
-                    duration: 1.2,
-                    ease: "power3.in",
-                    onComplete: reset
-                })
-            }
-        },
-        transitionDuration: 5,
-    };
+  return {
+    el,
+    timeline: tl,
+  };
 }

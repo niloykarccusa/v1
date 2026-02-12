@@ -24,7 +24,7 @@ export function createDoorstepSection(el) {
     { clipPath: clip.hiddenLeft },
     {
       clipPath: clip.visible,
-      duration: 2.5,
+      duration:10,
       ease: "power3.in",
     },
     "<0.1"

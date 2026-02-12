@@ -4,12 +4,13 @@ export function createDiamondSection(el) {
   const type = getDiamondType(el);
 
   const diamond = el.querySelector(".diamond-image");
-  const left = el.querySelector(".left-side");
-  const right = el.querySelector(".right-1");
 
   const tl = gsap.timeline({ paused: true });
 
-  if (type === "white" && left && right) {
+  if (type === "white") {
+    const left = el.querySelector(".left-side");
+    const right = el.querySelector(".right-1");
+    tl.set(right, { display: "block" }, 0);
     tl.fromTo(
       left,
       { x: 100 },

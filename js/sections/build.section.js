@@ -1,14 +1,13 @@
 export function createBuildSection(el) {
   const header = el.querySelector(".build-header");
   const blogGrid = el.querySelector(".blog-grid");
-  let tl;
 
-  function buildTimeline() {
-    tl = gsap.timeline({
-      paused: true,
-      defaults: { ease: "power3.out" }
-    });
+  const tl = gsap.timeline({
+    paused: true,
+    defaults: { ease: "power3.out" }
+  });
 
+  if (blogGrid) {
     tl.fromTo(
       blogGrid,
       {
@@ -22,7 +21,9 @@ export function createBuildSection(el) {
       },
       0
     );
+  }
 
+  if (header) {
     tl.fromTo(
       header,
       {
@@ -37,18 +38,12 @@ export function createBuildSection(el) {
       1
     );
   }
+  if (tl.duration() === 0) {
+    tl.to({}, { duration: 0.3 });
+  }
 
   return {
     el,
-
-    onEnter() {
-      if (!tl) buildTimeline();
-      tl.play();
-    },
-
-    onLeave() {
-        tl.reverse();
-    },
-    transitionDuration: 4.5,
+    timeline: tl,
   };
 }

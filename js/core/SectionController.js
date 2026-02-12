@@ -71,8 +71,8 @@ function updateProgress(direction) {
   const current = tl.progress();
   console.log(current);
   let nextProgress = gsap.utils.clamp(
-    0,
-    1,
+    -0.08,
+    1.08,
     current + PROGRESS_STEP * direction
   );
 
@@ -80,7 +80,7 @@ function updateProgress(direction) {
 
   const lastIndex = SectionRegistry.sections.length - 1;
 
-  if (nextProgress === 1 && direction === 1) {
+  if (nextProgress > 1 && direction === 1) {
     if (SectionRegistry.currentIndex === lastIndex) {
       disableObserverForFooter();
       return;
@@ -88,7 +88,7 @@ function updateProgress(direction) {
     goto(SectionRegistry.currentIndex + 1, 1);
   }
 
-  if (nextProgress === 0 && direction === -1) {
+  if (nextProgress < 0 && direction === -1) {
     goto(SectionRegistry.currentIndex - 1, -1);
   }
 }

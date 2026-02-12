@@ -54,27 +54,23 @@ export function createCtaSection(el) {
     xPercent: 0,
     stagger: 0.08,
   });
+
   tl.to(
     img,
     {
       autoAlpha: 1,
       duration: 0.2,
       ease: "power1.out",
-    }
+    },
+    ">-0.1"
   );
+
+  if (tl.duration() === 0) {
+    tl.to({}, { duration: 0.3 });
+  }
 
   return {
     el,
-
-    onEnter() {
-      reset();
-      tl.play(0);
-    },
-
-    onLeave() {
-      tl.reverse();
-    },
-
-    transitionDuration: 4.5,
+    timeline: tl,
   };
 }
