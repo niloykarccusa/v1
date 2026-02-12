@@ -1,11 +1,9 @@
 export function createHeroSection(el) {
-    let tl;
-    return {
-        el,
-        onEnter(direction) {
-        },
+  const tl = gsap.timeline({ paused: true });
+  tl.to({}, { duration: 0.1 });
 
-        onLeave(direction) {
-        }
-    };
+  return {
+    el,
+    timeline: tl,
+  };
 }
