@@ -5,5 +5,6 @@ export function createHeroSection(el) {
   return {
     el,
     timeline: tl,
+    skipInternalAnimation: true
   };
 }

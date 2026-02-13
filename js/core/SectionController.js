@@ -7,6 +7,7 @@ let animating = false;
 let observer;
 
 const PROGRESS_STEP = 0.08;
+const TRANSITION_START=1;
 
 function disableObserverForFooter() {
   if (observer) observer.disable();
@@ -68,8 +69,12 @@ function updateProgress(direction) {
   const tl = section.timeline;
   if (!tl) return;
 
-  const current = tl.progress();
-  console.log(current);
+  let current = tl.progress();
+  if (section.skipInternalAnimation) {
+  current = TRANSITION_START;
+  tl.progress(current);
+}
+  // console.log(current);
   let nextProgress = gsap.utils.clamp(
     -0.08,
     1.08,
@@ -95,7 +100,6 @@ function updateProgress(direction) {
 
 function goto(targetIndex, direction) {
   if (animating) return;
-
   if (!SectionRegistry.canGoTo(targetIndex)) return;
 
   animating = true;
@@ -115,13 +119,42 @@ function goto(targetIndex, direction) {
     });
   }
 
-  gsap.set(current.el, { autoAlpha: 0 });
-  gsap.set(next.el, { autoAlpha: 1 });
+  // place next section offscreen
+  gsap.set(next.el, {
+    yPercent: direction === 1 ? 100 : -100,
+    autoAlpha: 1,
+  });
 
-  if (next.timeline) {
-    next.timeline.progress(direction === 1 ? 0 : 1);
-  }
+  gsap.timeline({
+    onComplete: () => {
+      gsap.set(current.el, { autoAlpha: 0, yPercent: 0 });
+      SectionRegistry.currentIndex = targetIndex;
 
-  SectionRegistry.currentIndex = targetIndex;
-  animating = false;
+      if (next.timeline) {
+        next.timeline.progress(direction === 1 ? 0 : 1);
+      }
+
+      animating = false;
+    },
+  })
+  .to(
+    current.el,
+    {
+      yPercent: direction === 1 ? -100 : 100,
+      duration: 2,
+      ease: "power2.out",
+    },
+    0
+  )
+  .to(
+    next.el,
+    {
+      yPercent: 0,
+      duration: 2,
+      ease: "power2.out",
+    },
+    0
+  );
 }
+
+
